@@ -138,16 +138,6 @@
       .navbar-brand h1 {
           font-size: 24px;
       }
-
-      .filter-btn {
-          display: block;
-      }
-
-      .filter-menu {
-          display: none;
-      }
-
-      .filter-menu.show {
-          display: block;
-      }
   }
+
+  

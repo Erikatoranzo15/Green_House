@@ -55,13 +55,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><a href="../index.html" class="nav-link mt-1">Inicio</a></li>
+                        <li class="nav-item"><a href="../index.html" class="nav-link mt-ms-1">Inicio</a></li>
                         <li class="nav-item"><a href="../pages/productos.html" class="nav-link mt-1">Productos</a></li>
                         <li class="nav-item"><a href="../pages/nosotros.html" class="nav-link mt-1">Nosotros</a></li>
                         <li class="nav-item"><a href="../pages/contacto.html" class="nav-link mt-1">Contacto</a>
                         </li>
-                        <li class="nav-item"><a href="../pages/guias_siembra.html"
-                                class="nav-link active">Gu&iacute;as de
+                        <li class="nav-item"><a href="../pages/guias_siembra.html" class="nav-link active">Gu&iacute;as
+                                de
                                 siembra y
                                 cultivo</a></li>
                     </ul>
@@ -77,31 +77,38 @@
                 <div class="row">
                     <!-- FILTROS -->
                     <aside class="col-md-12 col-lg-2">
-                        <h4><i class="fa fa-filter"></i> Filtros</h4>
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Semillas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Oto&ntilde;o</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Invierno</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Primavera</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Verano</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Varios</a>
-                            </li>
-                        </ul>
+                        <button class="btn btn-dark d-lg-none w-100 mb-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#filtrosCollapse" aria-expanded="false" aria-controls="filtrosCollapse">
+                            <i class="fa fa-filter"></i> Filtros
+                        </button>
+
+                        <div class="collapse d-lg-block" id="filtrosCollapse">
+                            <h4 class="d-none d-lg-block"><i class="fa fa-filter"></i> Filtros</h4>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Semillas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Oto&ntilde;o</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Invierno</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Primavera</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Verano</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Varios</a>
+                                </li>
+                            </ul>
+                        </div>
                     </aside>
 
-                      <!-- GRILLA DE GUIAS DE SIEMBRA -->
-                     <div class="col-md-12 col-lg-10">
+                    <!-- GRILLA DE GUIAS DE SIEMBRA -->
+                    <div class="col-md-12 col-lg-10">
                         <div class="container mt-1">
                             <div class="row g-3">
                                 <!-- ORDEN ELEMENTOS -->
@@ -141,8 +148,7 @@
                                 </article>
                                 <article class="col-12 col-md-6 col-lg-3">
                                     <div class="card border border-0">
-                                        <img src="../images/verano.jpg" class="w-100 d-block"
-                                            alt="Productos 4">
+                                        <img src="../images/verano.jpg" class="w-100 d-block" alt="Productos 4">
                                         <div class="card-body w-100 h-100">
                                             <h4 class="mb-3 text-center">Verano</h4>
                                             <a href="#" class="btn text-light border border-0">Verano</a>
@@ -151,9 +157,11 @@
                                 </article>
                                 <div class="row g-3">
                                     <!-- BOTON BUSCAR -->
-                                    <div class="container-fluid full-height d-flex align-items-center justify-content-center">
+                                    <div
+                                        class="container-fluid full-height d-flex align-items-center justify-content-center">
                                         <div class="text-center">
-                                            <a href="#" class="btn text-light border border-0">Mostrar m&aacute;s resultados</a>
+                                            <a href="#" class="btn text-light border border-0">Mostrar m&aacute;s
+                                                resultados</a>
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +170,7 @@
                     </div>
                 </div>
             </div>
-        </section>     
+        </section>
     </main>
 
     <!-- FOOTER DIVIDIDO EN TRES COLUMNAS - MENU DE NAVEGACION + MAPA + REDES SOCIALES -->

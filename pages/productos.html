@@ -77,32 +77,39 @@
                 <div class="row">
                     <!-- FILTROS -->
                     <aside class="col-md-12 col-lg-2">
-
-                        <h4><i class="fa fa-filter"></i> Filtros</h4>
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Semillas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Sustratos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Fertilizantes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Control de plagas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Varios</a>
-                            </li>
-                        </ul>
-                        <div class="row mt-1">
-                            <h5><i class="fa-solid fa-dollar"></i> Precio</h5>
-                            <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" placeholder="">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" placeholder="">
+                       
+                        <button class="btn btn-dark d-lg-none w-100 mb-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#filtrosCollapse" aria-expanded="false" aria-controls="filtrosCollapse">
+                            <i class="fa fa-filter"></i> Filtros
+                        </button>
+                      
+                        <div class="collapse d-lg-block" id="filtrosCollapse">
+                            <h4 class="d-none d-lg-block"><i class="fa fa-filter"></i> Filtros</h4>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Semillas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Sustratos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Fertilizantes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Control de plagas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Varios</a>
+                                </li>
+                            </ul>
+                            <div class="row mt-1">
+                                <h5><i class="fa-solid fa-dollar"></i> Precio</h5>
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control" placeholder="Desde">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control" placeholder="Hasta">
+                                </div>
                             </div>
                         </div>
                     </aside>
