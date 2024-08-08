@@ -29,7 +29,7 @@
 
   /* CSS CUSTOMIZADO NAVBAR */
   .nav a:hover {
-      color: #bad80a !important;
+      color: #7AA93C !important;
   }
 
   .navbar-brand h1 {
@@ -43,8 +43,8 @@
 
   .navbar-nav .nav-link.active,
   .navbar-nav .nav-link.show {
-      border-top: 5px solid #bad80a;
-      border-bottom: 5px solid #bad80a;
+      border-top: 5px solid #7AA93C;
+      border-bottom: 5px solid #7AA93C;
   }
 
   .navbar-toggler:focus {
@@ -104,7 +104,7 @@
   }
 
   .card-body .btn {
-      background-color: #bad80a;
+      background-color: #7AA93C;
   }
 
   .card-body .btn:hover {
@@ -112,9 +112,9 @@
   }
 
   /* FOOTER */
-  .footer {
+  /* .footer {
       background-color: #f8f9fa;
-  }
+  } */
 
   .footer .nav a {
       margin-bottom: 10px;
@@ -126,7 +126,7 @@
   }
 
   .footer .social-links a:hover {
-      color: #bad80a !important;
+      color: #7AA93C !important;
   }
 
   .footer .map {
@@ -139,7 +139,7 @@
   #grillaProductos .btn,
   #formContacto .btn,
   #grillaGuiasSiembra .btn {
-      background-color: #bad80a;
+      background-color: #7AA93C;
   }
 
   #grillaProductos .btn:hover,
