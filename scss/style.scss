@@ -1,0 +1,185 @@
+/* CONFIGURACION INICIAL */
+$font-family: "Gravitype-Minigap";
+$btn-primary-color: #7AA93C;
+$btn-hover-color: #73aa24;
+
+a {
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "Gravitype-Minigap";
+    src: url(../fonts/Gravitype-Minigap.otf)
+}
+
+body {
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    color: #333;
+    font-family: $font-family;
+}
+
+/* OPACIDAD FONDO */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: -1;
+}
+
+/* ICONO WHATSAPP */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.whatsapp-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* CSS CUSTOMIZADO NAVBAR */
+.nav {
+    a {
+        &:hover {
+            color: $btn-hover-color !important;
+        }
+    }
+}
+
+.navbar-brand {
+    h1 {
+        font-size: 32px;
+    }
+}
+
+.navbar-custom {
+    .form-inline {
+        flex: 1;
+        max-width: 600px;
+    }
+}
+
+.navbar-nav {
+    .nav-link {
+
+        &.active,
+        &.show {
+            border-top: 5px solid $btn-primary-color;
+            border-bottom: 5px solid $btn-primary-color;
+        }
+    }
+}
+
+.navbar-toggler {
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+/* CAROUSEL IMAGENES */
+.carousel-item {
+    img {
+        height: auto;
+    }
+}
+
+/* GRID DE ACCESO - PRODUCTOS */
+.card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    img {
+        height: auto;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.card-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+
+    .btn {
+        background-color: $btn-primary-color;
+
+        &:hover {
+            background-color: $btn-hover-color;
+        }
+    }
+}
+
+/* FOOTER */
+.footer {
+    .nav {
+        a {
+            margin-bottom: 10px;
+        }
+    }
+
+    .social-links {
+        a {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+    }
+
+    .social-links {
+        a {
+            &:hover {
+                color: $btn-hover-color !important;
+            }
+        }
+    }
+
+    .map {
+        height: 200px;
+    }
+}
+
+/* GRILLA DE PRODUCTOS */
+/* FORM CONTACTO */
+/* GRILLA DE GUIAS DE SIEMBRA */
+#grillaProductos,
+#formContacto,
+#grillaGuiasSiembra {
+    .btn {
+        background-color: $btn-primary-color;
+
+        &:hover {
+            background-color: $btn-hover-color;
+        }
+    }
+}
+
+/* MEDIAS QUERIES */
+@media (max-width: 767px) {
+    .navbar-brand {
+        h1 {
+            font-size: 24px;
+        }
+    }
+}
