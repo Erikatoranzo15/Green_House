@@ -1,0 +1,61 @@
+
+
+/* CAROUSEL IMAGENES */
+.carousel-item {
+    img {
+        height: auto;
+    }
+}
+
+/* GRID DE ACCESO - PRODUCTOS */
+.card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    img {
+        height: auto;      
+    }
+
+    &:hover {
+        img{
+            transform: scale(1.1);
+        }
+    }
+}
+
+.card-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+
+    .btn {
+        background-color: $btn-primary-color;
+
+        &:hover {
+            background-color: $btn-hover-color;
+        }
+    }
+}
+
+/* GRILLA DE PRODUCTOS */
+/* FORM CONTACTO */
+/* GRILLA DE GUIAS DE SIEMBRA */
+#grillaProductos,
+#formContacto,
+#grillaGuiasSiembra {
+    .btn {
+        background-color: $btn-primary-color;
+
+        &:hover {
+            background-color: $btn-hover-color;
+        }
+    }
+}

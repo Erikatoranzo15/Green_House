@@ -1,0 +1,27 @@
+/* FOOTER */
+.footer {
+    .nav {
+        a {
+            margin-bottom: 10px;
+        }
+    }
+
+    .social-links {
+        a {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+    }
+
+    .social-links {
+        a {
+            &:hover {
+                color: $btn-hover-color !important;
+            }
+        }
+    }
+
+    .map {
+        height: $map-size;
+    }
+}

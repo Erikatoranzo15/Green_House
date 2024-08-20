@@ -1,12 +1,12 @@
 /* CONFIGURACION INICIAL */
-a {
-  text-decoration: none;
-}
-
 @font-face {
   font-family: "Gravitype-Minigap";
   src: url(../fonts/Gravitype-Minigap.otf);
 }
+a {
+  text-decoration: none;
+}
+
 body {
   background: url("../images/background.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -82,7 +82,7 @@ body {
 .card img {
   height: auto;
 }
-.card img:hover {
+.card:hover img {
   transform: scale(1.1);
 }
 
@@ -105,6 +105,20 @@ body {
   background-color: #73aa24;
 }
 
+/* GRILLA DE PRODUCTOS */
+/* FORM CONTACTO */
+/* GRILLA DE GUIAS DE SIEMBRA */
+#grillaProductos .btn,
+#formContacto .btn,
+#grillaGuiasSiembra .btn {
+  background-color: #7AA93C;
+}
+#grillaProductos .btn:hover,
+#formContacto .btn:hover,
+#grillaGuiasSiembra .btn:hover {
+  background-color: #73aa24;
+}
+
 /* FOOTER */
 .footer .nav a {
   margin-bottom: 10px;
@@ -118,20 +132,6 @@ body {
 }
 .footer .map {
   height: 200px;
-}
-
-/* GRILLA DE PRODUCTOS */
-/* FORM CONTACTO */
-/* GRILLA DE GUIAS DE SIEMBRA */
-#grillaProductos .btn,
-#formContacto .btn,
-#grillaGuiasSiembra .btn {
-  background-color: #7AA93C;
-}
-#grillaProductos .btn:hover,
-#formContacto .btn:hover,
-#grillaGuiasSiembra .btn:hover {
-  background-color: #73aa24;
 }
 
 /* MEDIAS QUERIES */
