@@ -1,7 +1,7 @@
 /* CONFIGURACION INICIAL */
 @font-face {
   font-family: "Gravitype-Minigap";
-  src: url(../../fonts/Gravitype-Minigap.otf);
+  src: url(../fonts/Gravitype-Minigap.otf);
 }
 a {
   text-decoration: none;
