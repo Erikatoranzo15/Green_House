@@ -1,6 +1,6 @@
 
 /* MEDIAS QUERIES */
-@media (max-width: 767px) {
+@media (max-width: #{$breakpoint-md}) {
     header {
         .navbar-brand {
             h1 {
@@ -10,7 +10,7 @@
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: #{$breakpoint-lg}) {
     header .navbar .container #navbarNav {
       animation: slideInFromRight 2s ease-out;
     }

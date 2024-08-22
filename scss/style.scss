@@ -1,8 +1,8 @@
 /* CONFIGURACION INICIAL */
-@import "variables";
-@import "body";
-@import "header";
-@import "main";
-@import "footer";
-@import "mediaqueries";
-@import "animations";
+@import "base/variables";
+@import "components/body";
+@import "components/header";
+@import "components/main";
+@import "components/footer";
+@import "base/mediaqueries";
+@import "base/animations";
