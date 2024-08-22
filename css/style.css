@@ -47,26 +47,15 @@ body {
   animation-iteration-count: infinite;
 }
 
-@keyframes tada {
-  0% {
-    transform: scaleZ(1);
-  }
-  10%, 20% {
-    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-  }
-  30%, 50%, 70%, 90% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-  }
-  40%, 60%, 80% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-  }
-  to {
-    transform: scaleZ(1);
-  }
-}
 /* CSS CUSTOMIZADO NAVBAR */
 header .navbar .container .navbar-brand h1 {
   font-size: 32px;
+}
+header .navbar .container .navbar-brand .plant {
+  font-size: 35px;
+  display: inline-block;
+  animation: subtleShadow 5s ease-in-out infinite;
+  color: #2d6a4f;
 }
 header .navbar .container .form-inline {
   flex: 1;
@@ -80,16 +69,6 @@ header .navbar .container .navbar-toggler:focus {
   box-shadow: none;
 }
 
-@keyframes slideInFromRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
 /* CAROUSEL IMAGENES */
 /* GRID DE ACCESO - PRODUCTOS */
 /* GRILLA DE PRODUCTOS */
@@ -140,6 +119,10 @@ main .btn:hover {
 }
 
 /* FOOTER */
+.footer {
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
 .footer .nav a {
   margin-bottom: 10px;
 }
@@ -166,6 +149,49 @@ main .btn:hover {
 @media (min-width: 992px) {
   header .navbar .container #navbarNav {
     animation: slideInFromRight 2s ease-out;
+  }
+}
+@keyframes tada {
+  0% {
+    transform: scaleZ(1);
+  }
+  10%, 20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+  to {
+    transform: scaleZ(1);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes subtleShadow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   }
 }
 

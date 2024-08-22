@@ -8,6 +8,14 @@ header {
                 h1 {
                     font-size: 32px;
                 }
+
+                .plant {
+                    font-size: 35px;
+                    display: inline-block;
+                    animation: subtleShadow 5s ease-in-out infinite;
+                    color: #2d6a4f;
+                }
+
             }
 
             .form-inline {
@@ -32,15 +40,4 @@ header {
         }
     }
 
-}
-
-@keyframes slideInFromRight {
-    from {
-        transform: translateX(100%); 
-        opacity: 0; 
-    }
-    to {
-        transform: translateX(0); 
-        opacity: 1; 
-    }
 }

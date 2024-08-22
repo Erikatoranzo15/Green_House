@@ -1,5 +1,8 @@
 /* FOOTER */
 .footer {
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards; 
+    
     .nav {
         a {
             margin-bottom: 10px;
@@ -23,3 +26,4 @@
         height: $map-size;
     }
 }
+
