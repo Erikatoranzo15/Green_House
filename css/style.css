@@ -41,14 +41,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-}
-.whatsapp-float:hover .whatsapp-icon {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation-name: tada;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
 }
 
+@keyframes tada {
+  0% {
+    transform: scaleZ(1);
+  }
+  10%, 20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+  to {
+    transform: scaleZ(1);
+  }
+}
 /* CSS CUSTOMIZADO NAVBAR */
 header .navbar .container .navbar-brand h1 {
   font-size: 32px;
@@ -65,19 +80,26 @@ header .navbar .container .navbar-toggler:focus {
   box-shadow: none;
 }
 
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 /* CAROUSEL IMAGENES */
 /* GRID DE ACCESO - PRODUCTOS */
 /* GRILLA DE PRODUCTOS */
 /* FORM CONTACTO */
 /* GRILLA DE GUIAS DE SIEMBRA */
-main .carousel .carousel-inner .carousel-item {
-  transition: transform 0.6s ease-in-out;
-}
 main .carousel .carousel-inner .carousel-item img {
   height: auto;
 }
 main .nav a:hover {
-  color: #73aa24 !important;
+  color: #5D8A2B !important;
 }
 main .card {
   position: relative;
@@ -108,13 +130,13 @@ main .card .card-body .btn {
   background-color: #7AA93C;
 }
 main .card .card-body .btn:hover {
-  background-color: #73aa24;
+  background-color: #5D8A2B;
 }
 main .btn {
   background-color: #7AA93C;
 }
 main .btn:hover {
-  background-color: #73aa24;
+  background-color: #5D8A2B;
 }
 
 /* FOOTER */
@@ -122,14 +144,14 @@ main .btn:hover {
   margin-bottom: 10px;
 }
 .footer .nav a:hover {
-  color: #73aa24 !important;
+  color: #5D8A2B !important;
 }
 .footer .social-links a {
   font-size: 24px;
   margin-right: 10px;
 }
 .footer .social-links a:hover {
-  color: #73aa24 !important;
+  color: #5D8A2B !important;
 }
 .footer .map {
   height: 200px;
@@ -139,6 +161,11 @@ main .btn:hover {
 @media (max-width: 767px) {
   header .navbar-brand h1 {
     font-size: 24px !important;
+  }
+}
+@media (min-width: 992px) {
+  header .navbar .container #navbarNav {
+    animation: slideInFromRight 2s ease-out;
   }
 }
 

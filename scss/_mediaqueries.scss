@@ -9,3 +9,9 @@
         }
     }
 }
+
+@media (min-width: 992px) {
+    header .navbar .container #navbarNav {
+      animation: slideInFromRight 2s ease-out;
+    }
+  }
