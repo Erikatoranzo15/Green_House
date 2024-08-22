@@ -3,6 +3,9 @@
     .nav {
         a {
             margin-bottom: 10px;
+            &:hover {
+                color: $btn-hover-color !important;
+            }
         }
     }
 
@@ -10,11 +13,6 @@
         a {
             font-size: 24px;
             margin-right: 10px;
-        }
-    }
-
-    .social-links {
-        a {
             &:hover {
                 color: $btn-hover-color !important;
             }

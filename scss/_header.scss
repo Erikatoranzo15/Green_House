@@ -1,38 +1,35 @@
 /* CSS CUSTOMIZADO NAVBAR */
-.nav {
-    a {
-        &:hover {
-            color: $btn-hover-color !important;
+
+
+header {
+    .navbar {
+        .container {
+            .navbar-brand {
+                h1 {
+                    font-size: 32px;
+                }
+            }
+
+            .form-inline {
+                flex: 1;
+                max-width: 600px;
+            }
+
+            .nav-link {
+
+                &.active,
+                &.show {
+                    border-top: 5px solid $btn-primary-color;
+                    border-bottom: 5px solid $btn-primary-color;
+                }
+            }
+
+            .navbar-toggler {
+                &:focus {
+                    box-shadow: none;
+                }
+            }
         }
     }
-}
 
-.navbar-brand {
-    h1 {
-        font-size: 32px;
-    }
-}
-
-.navbar-custom {
-    .form-inline {
-        flex: 1;
-        max-width: 600px;
-    }
-}
-
-.navbar-nav {
-    .nav-link {
-
-        &.active,
-        &.show {
-            border-top: 5px solid $btn-primary-color;
-            border-bottom: 5px solid $btn-primary-color;
-        }
-    }
-}
-
-.navbar-toggler {
-    &:focus {
-        box-shadow: none;
-    }
 }
