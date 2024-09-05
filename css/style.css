@@ -3,6 +3,41 @@
   font-family: "Gravitype-Minigap";
   src: url(../fonts/Gravitype-Minigap.otf);
 }
+@keyframes tada {
+  0% {
+    transform: scaleZ(1);
+  }
+  10%, 20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+  to {
+    transform: scaleZ(1);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 a {
   text-decoration: none;
 }
@@ -52,10 +87,7 @@ header .navbar .container .navbar-brand h1 {
   font-size: 32px;
 }
 header .navbar .container .navbar-brand .plant {
-  font-size: 35px;
   display: inline-block;
-  animation: subtleShadow 5s ease-in-out infinite;
-  color: #2d6a4f;
 }
 header .navbar .container .form-inline {
   flex: 1;
@@ -117,6 +149,29 @@ main .btn {
 main .btn:hover {
   background-color: #5D8A2B;
 }
+main #grillaStaff .row article.col-12.col-md-3 .card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+main #grillaStaff .row article.col-12.col-md-3 .card .card-img-top {
+  object-fit: cover;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+  box-shadow: none;
+  width: 200px;
+}
+main #grillaStaff .row article.col-12.col-md-3 .card .card-img-body {
+  padding: 1rem;
+}
+main #grillaStaff .row article.col-12.col-md-3 .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+main #grillaStaff .row article.col-12.col-md-3 .card:hover .card-img-top {
+  transform: scale(1.05);
+}
 
 /* FOOTER */
 .footer {
@@ -149,49 +204,6 @@ main .btn:hover {
 @media (min-width: 992px) {
   header .navbar .container #navbarNav {
     animation: slideInFromRight 2s ease-out;
-  }
-}
-@keyframes tada {
-  0% {
-    transform: scaleZ(1);
-  }
-  10%, 20% {
-    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-  }
-  30%, 50%, 70%, 90% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-  }
-  40%, 60%, 80% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-  }
-  to {
-    transform: scaleZ(1);
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes slideInFromRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes subtleShadow {
-  0%, 100% {
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  }
-  50% {
-    text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   }
 }
 
