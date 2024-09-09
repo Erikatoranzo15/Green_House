@@ -1,17 +1,36 @@
-
 /* MEDIAS QUERIES */
 @media (max-width: #{$breakpoint-md}) {
     header {
-        .navbar-brand {
-            h1 {
-                font-size: 24px !important;
+        .navbar {
+            .container {
+                .navbar-brand {
+                    h1 {
+                        font-size: 24px !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        padding: 10px;
+        text-align: center;
+    }
+
+}
+
+@media (max-width: #{$breakpoint-lg}) {
+    header {
+        .navbar {
+            .container {
+                #navbarNav {
+                    animation: slideInFromRight 2s ease-out;
+                }
+
+                .form-control {
+                    width: auto; 
+                }
             }
         }
     }
 }
-
-@media (min-width: #{$breakpoint-lg}) {
-    header .navbar .container #navbarNav {
-      animation: slideInFromRight 2s ease-out;
-    }
-  }

@@ -48,6 +48,12 @@ body {
   position: relative;
   color: #333;
   font-family: "Gravitype-Minigap";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: normal;
+  min-height: 100vh;
+  margin: 0;
 }
 
 /* OPACIDAD FONDO */
@@ -74,6 +80,7 @@ body {
   background-color: #25D366;
   border-radius: 50%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   animation-name: tada;
@@ -88,6 +95,11 @@ header .navbar .container .navbar-brand h1 {
 }
 header .navbar .container .navbar-brand .plant {
   display: inline-block;
+}
+header .navbar .container .custom-badge {
+  background-color: #7AA93C;
+  color: #fff;
+  border-radius: 0.375rem;
 }
 header .navbar .container .form-inline {
   flex: 1;
@@ -106,6 +118,9 @@ header .navbar .container .navbar-toggler:focus {
 /* GRILLA DE PRODUCTOS */
 /* FORM CONTACTO */
 /* GRILLA DE GUIAS DE SIEMBRA */
+main {
+  flex: 1;
+}
 main .carousel .carousel-inner .carousel-item img {
   height: auto;
 }
@@ -149,27 +164,28 @@ main .btn {
 main .btn:hover {
   background-color: #5D8A2B;
 }
-main #grillaStaff .row article.col-12.col-md-3 .card {
+main #grillaStaff .row article.col-12.col-md-6.col-lg-3 .card {
   border-radius: 15px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #fff;
 }
-main #grillaStaff .row article.col-12.col-md-3 .card .card-img-top {
+main #grillaStaff .row article.col-12.col-md-6.col-lg-3 .card .card-img-top {
   object-fit: cover;
   margin: 0 auto;
   transition: transform 0.3s ease;
   box-shadow: none;
   width: 200px;
+  height: 200px;
 }
-main #grillaStaff .row article.col-12.col-md-3 .card .card-img-body {
+main #grillaStaff .row article.col-12.col-md-6.col-lg-3 .card .card-img-body {
   padding: 1rem;
 }
-main #grillaStaff .row article.col-12.col-md-3 .card:hover {
+main #grillaStaff .row article.col-12.col-md-6.col-lg-3 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-main #grillaStaff .row article.col-12.col-md-3 .card:hover .card-img-top {
+main #grillaStaff .row article.col-12.col-md-6.col-lg-3 .card:hover .card-img-top {
   transform: scale(1.05);
 }
 
@@ -197,13 +213,20 @@ main #grillaStaff .row article.col-12.col-md-3 .card:hover .card-img-top {
 
 /* MEDIAS QUERIES */
 @media (max-width: 767px) {
-  header .navbar-brand h1 {
+  header .navbar .container .navbar-brand h1 {
     font-size: 24px !important;
   }
+  .footer {
+    padding: 10px;
+    text-align: center;
+  }
 }
-@media (min-width: 992px) {
+@media (max-width: 992px) {
   header .navbar .container #navbarNav {
     animation: slideInFromRight 2s ease-out;
+  }
+  header .navbar .container .form-control {
+    width: auto;
   }
 }
 

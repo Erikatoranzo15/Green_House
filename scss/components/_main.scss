@@ -4,6 +4,9 @@
 /* FORM CONTACTO */
 /* GRILLA DE GUIAS DE SIEMBRA */
 main {
+
+    flex: 1;
+
     .carousel {
         .carousel-inner {
             .carousel-item {
@@ -46,10 +49,7 @@ main {
             left: 0;
             background-color: rgba(0, 0, 0, 0.6);
             color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            @include flexbox(column, center, center);
             transition: opacity 0.3s ease;
 
             .btn {
@@ -76,33 +76,35 @@ main {
         .row {
             article {
                 &.col-12 {
-                    &.col-md-3 {
+                    &.col-md-6 {
+                        &.col-lg-3 {
 
-                        .card {
-                            border-radius: 15px;
-                            overflow: hidden;
-                            transition: transform 0.3s ease, box-shadow 0.3s ease;
-                            background-color: #fff;
+                            .card {
+                                border-radius: 15px;
+                                overflow: hidden;
+                                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                                background-color: #fff;
 
-                            .card-img-top {
-                                object-fit: cover;
-                                margin: 0 auto;
-                                transition: transform 0.3s ease;
-                                box-shadow: none;
-                                width: 200px;
-                            }
+                                .card-img-top {
+                                    object-fit: cover;
+                                    margin: 0 auto;
+                                    transition: transform 0.3s ease;
+                                    box-shadow: none;
+                                    @include dimensions(200px, 200px);
+                                }
 
-                            .card-img-body {
-                                padding: 1rem;
-                            }
+                                .card-img-body {
+                                    padding: 1rem;
+                                }
 
-                            &:hover {
-                                transform: translateY(-10px);
-                                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-                            }
+                                &:hover {
+                                    transform: translateY(-10px);
+                                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                                }
 
-                            &:hover .card-img-top {
-                                transform: scale(1.05);
+                                &:hover .card-img-top {
+                                    transform: scale(1.05);
+                                }
                             }
                         }
                     }

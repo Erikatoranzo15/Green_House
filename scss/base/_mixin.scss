@@ -1,0 +1,18 @@
+// Mixin para flexbox
+@mixin flexbox($direction: row, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin dimensions($width, $height: auto) {
+    width: $width;
+    height: $height;
+}
+
+@mixin badge-styles($bg-color, $text-color) {
+    background-color: $bg-color;
+    color: $text-color;
+    border-radius: .375rem; 
+}
