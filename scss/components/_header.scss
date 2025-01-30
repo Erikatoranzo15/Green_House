@@ -38,6 +38,29 @@ header {
                     box-shadow: none;
                 }
             }
+
+            #usuarioDropdown {
+                .btn-outline-primary {
+                    border-color: $btn-primary-color;
+                    color: $btn-primary-color;
+
+                    &:hover {
+                        background-color: $btn-hover-color;
+                        color: #FFF;
+                    }
+                }
+
+                .btn.dropdown-toggle.show {
+                    background-color: $btn-primary-color;
+                    color: #FFF;
+                }
+
+                .dropdown-item.active,
+                .dropdown-item:active {
+                    background-color: #FFF;
+                    color: $btn-primary-color;
+                }
+            }
         }
     }
 

@@ -112,6 +112,23 @@ header .navbar .container .nav-link.active, header .navbar .container .nav-link.
 header .navbar .container .navbar-toggler:focus {
   box-shadow: none;
 }
+header .navbar .container #usuarioDropdown .btn-outline-primary {
+  border-color: #7AA93C;
+  color: #7AA93C;
+}
+header .navbar .container #usuarioDropdown .btn-outline-primary:hover {
+  background-color: #5D8A2B;
+  color: #FFF;
+}
+header .navbar .container #usuarioDropdown .btn.dropdown-toggle.show {
+  background-color: #7AA93C;
+  color: #FFF;
+}
+header .navbar .container #usuarioDropdown .dropdown-item.active,
+header .navbar .container #usuarioDropdown .dropdown-item:active {
+  background-color: #FFF;
+  color: #7AA93C;
+}
 
 /* CAROUSEL IMAGENES */
 /* GRID DE ACCESO - PRODUCTOS */

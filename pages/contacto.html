@@ -53,7 +53,21 @@
                         onclick="buscarProducto()"><i class="fas fa-search"></i></button>
                 </form>
                 <div class="d-flex align-items-center position-relative">
-                    <i class="fas fa-2x fa-user me-2" onclick="iniciarSesion()"></i>
+                    <!-- INICIO SESION -->
+                    <button id="iconoUsuario" onclick="iniciarSesion()" class="btn btn-link p-0 text-dark">
+                        <i class="fas fa-2x fa-user me-2"></i>
+                    </button>
+                    <!-- NOMBRE USUARIO + OPCION DE DESLOGUEO -->
+                    <div id="usuarioDropdown" class="dropdown d-none m-2">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="btnUsuario"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span id="nombreUsuario"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="btnUsuario">
+                            <li><a class="dropdown-item" href="#" onclick="cerrarSesion()">Cerrar sesi&oacute;n</a></li>
+                        </ul>
+                    </div>
+                    <!-- CARRITO DE COMPRAS -->
                     <div class="position-relative">
                         <i class="fas fa-2x fa-shopping-cart" onclick="verCarrito()"></i>
                         <span

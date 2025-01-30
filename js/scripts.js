@@ -1,24 +1,30 @@
 ///////GESTION DEL CARRITO
 
-// LISTA DE ELEMENTO EN CARRITO
-let carrito = [];
+// LISTA DE ELEMENTOS EN CARRITO CONTEMPLANDO AHORA QUE SE MANTIENEN LOCALMENTE
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+// FUNCION PARA GUARDAR EL CARRITO EN LOCALSTORAGE
+function guardarCarrito() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
 
 // FUNCION PARA AGREGAR NUEVOS ELEMENTOS AL CARRITO DESDE LA SECCION DE PRODUCTOS
 function agregarAlCarrito(producto) {
-    //VERIFICAMOS SI EL CARRITO YA TIENE ESE ELEMENTO
+    // VERIFICAMOS SI EL CARRITO YA TIENE ESE ELEMENTO
     const index = carrito.findIndex(item => item.nombre === producto);
 
     if (index !== -1) {
-        //SI EL ELEMENTO EXISTE SOLO AUMENTAMOS SU CANTIDAD
+        // SI EL ELEMENTO EXISTE SOLO AUMENTAMOS SU CANTIDAD
         carrito[index].cantidad++;
-        // MOSTRAMOS MENSAJE DE EXITO
         alert(`${producto} ahora tiene ${carrito[index].cantidad} unidades en el carrito.`);
     } else {
-        //SI EL ELEMENTO NO EXISTE EN EL CARRITO LO AGREGAMOS
+        // SI EL ELEMENTO NO EXISTE EN EL CARRITO, LO AGREGAMOS
         carrito.push({ nombre: producto, cantidad: 1 });
-        // MOSTRAMOS MENSAJE DE EXITO
         alert(`${producto} ha sido añadido al carrito.`);
     }
+
+    // GUARDAMOS EN LOCALSTORAGE
+    guardarCarrito();
 
     // ACTUALIZAMOS EL CONTADOR DEL CARRITO
     actualizarContadorCarrito();
@@ -26,35 +32,30 @@ function agregarAlCarrito(producto) {
 
 // FUNCION PARA ACTUALIZAR LA CANTIDAD DE ELEMENTOS EN EL CARRITO
 function actualizarContadorCarrito() {
-    const contador = carrito.length;
+    const contador = carrito.reduce((total, item) => total + item.cantidad, 0);
 
     // ACTUALIZAMOS CONTADOR DE ELEMENTOS DEL CARRITO
-    const badge = document.querySelector('.custom-badge');
-    if (badge) {
-        badge.textContent = contador;
-    }
+    document.querySelector(".custom-badge").textContent = carrito.length;
 }
 
 // FUNCION PARA VER LA LISTA DE ELEMENTOS EN EL CARRITO
 function verCarrito() {
-    //CONTROLAMOS SI HAY ELEMENTOS EN EL CARRITO
+    // CONTROLAMOS SI HAY ELEMENTOS EN EL CARRITO
     if (carrito.length === 0) {
         alert("Tu carrito está vacío.");
     } else {
         let mensaje = "Productos en tu carrito:\n";
-        //RECORREMOS LA LISTA DE ELEMENTOS DEL CARRITO
         carrito.forEach((producto, index) => {
             mensaje += `${index + 1}. ${producto.nombre} - ${producto.cantidad} unidad${producto.cantidad > 1 ? "es" : ""}\n`;
         });
-        mensaje += "\nEscribe el número del producto que deseas eliminar o 'Cancelar' para salir.";
 
+        mensaje += "\nEscribe el número del producto que deseas eliminar o 'Cancelar' para salir.";
         const opcion = prompt(mensaje);
 
         if (opcion && opcion.toLowerCase() !== 'cancelar') {
             const productoIndex = parseInt(opcion) - 1;
             if (productoIndex >= 0 && productoIndex < carrito.length) {
-                //DESCARTAMOS EL ELEMENTO DEL CARRITO
-                eliminarDelCarrito(carrito[productoIndex].nombre); 
+                eliminarDelCarrito(carrito[productoIndex].nombre);
             } else {
                 alert("Opción no válida.");
             }
@@ -64,29 +65,34 @@ function verCarrito() {
 
 // FUNCION PARA ELIMINAR UN ELEMENTO EN ESPECIFICO DEL CARRITO
 function eliminarDelCarrito(nombreProducto) {
-    //CONTROLAMOS SI EFECTIVAMENTE EL ELEMENTO ESTA EN EL CARRITO
     const index = carrito.findIndex(item => item.nombre === nombreProducto);
 
     if (index !== -1) {
         const producto = carrito[index];
 
         if (producto.cantidad > 1) {
-            //SI HAY MAS DE UNA UNIDAD SOLO RESTAMOS UNA
+            // SI HAY MAS DE UNA UNIDAD SOLO RESTAMOS UNA
             producto.cantidad--;
             alert(`${producto.nombre} ahora tiene ${producto.cantidad} unidad${producto.cantidad > 1 ? "es" : ""} en el carrito.`);
         } else {
-            //SI SOLO TIENE UNA UNIDAD LO DESCARTAMOS POR COMPLETO
+            // SI SOLO TIENE UNA UNIDAD, LO ELIMINAMOS
             carrito.splice(index, 1);
             alert(`${producto.nombre} ha sido eliminado del carrito.`);
         }
 
-        //  ACTUALIZAMOS CONTADOR DE ELEMENTOS DEL CARRITO
+        // GUARDAMOS EN LOCALSTORAGE
+        guardarCarrito();
+
+        // ACTUALIZAMOS EL CONTADOR DEL CARRITO
         actualizarContadorCarrito();
     } else {
-        // SINO ESTA NO SE PUEDE ELIMINAR
+        //SINO ESTA NO SE PUEDE ELIMINAR
         alert(`El producto "${nombreProducto}" no está en el carrito.`);
     }
 }
+
+// CARGAR INICIAL DE CONTADOR DE ELEMENTOS EN CARRITO
+document.addEventListener("DOMContentLoaded", actualizarContadorCarrito);
 
 //////FIN GESTION CARRITO
 
@@ -153,26 +159,32 @@ const categorias = [
     }
 ];
 
+//FUNCION PARA MOSTRAR LA INFORMACION ASOCIADA A UNA CATEGORIA
 function mostrarInformacionCategoria(categoriaNombre) {
     // DADA UNA CATEGORIA SELECCIONADA BUSCAMOS LA INFORMACION ASOCIADA EN EL ARRAY
     const categoria = categorias.find(item => item.nombre.toLowerCase() === categoriaNombre.toLowerCase());
 
     if (categoria) {
         // SI EL ELEMENTO BUSCADO EXISTE MOSTRAMOS SU INFORMACION
-        let mensaje = `Información sobre ${categoria.nombre}:\n\n`;
-        mensaje += `${categoria.descripcion}\n\n`;
-        mensaje += "Productos disponibles:\n";
-        categoria.productos.forEach((producto, index) => {
-            mensaje += `${index + 1}. ${producto}\n`;
-        });
-        
-        alert(mensaje);
+        let contenidoHTML = `
+            <h5>${categoria.nombre}</h5>
+            <p>${categoria.descripcion}</p>
+            <ul>
+                ${categoria.productos.map(producto => `<li>${producto}</li>`).join("")}
+            </ul>
+        `;
+
+        //INSERTAMOS EL HTML GENERADO DENTRO DEL MODAL 
+        document.getElementById("infoCategoria").innerHTML = contenidoHTML;
+
+        //MOSTRAMOS MODAL
+        let modal = new bootstrap.Modal(document.getElementById("modalCategoria"));
+        modal.show();
     } else {
         // SI EL ELEMENTO BUSCADO NO EXISTE AVISAMOS QUE NO HAY INFORMACION
         alert("Categoría no encontrada.");
     }
 }
-
 
 // FUNCION PARA REGISTRAR SUSCRIPCION DESDE FOOTER
 function suscribirseBoletin() {
@@ -184,15 +196,61 @@ function suscribirseBoletin() {
     }
 }
 
+////////GESTION USUARIO LOGUEADO
 // FUNCION PARA EL INICIO DE SESION DEL USUARIO
+//SE REEMPLAZA POR ALMACENAMIENTO LOCAL
 function iniciarSesion() {
-    const email = prompt("Por favor, ingresa tu correo electrónico para iniciar sesión:");
+    let email = prompt("Por favor, ingresa tu correo electrónico para iniciar sesión:");
 
     if (email) {
-        // MOSTRAMOS MENSAJE DE EXITO
-        alert(`¡Bienvenido, ${email}! Has iniciado sesión correctamente.`);
+        //GUARDAMOS EMAIL INGRESADO LOCALMENTE
+        localStorage.setItem("usuario", email);
+
+        //ACTUALIZAMOS ICONO Y ACCESO
+        actualizarUIUsuario();
     } else {
-        // MOSTRAMOS MENSAJE DE ERROR
         alert("No has ingresado un correo electrónico.");
     }
 }
+
+//FUNCION PARA CERRAR SESION DE USUARIO ACTUAL
+function cerrarSesion() {
+    //DESCARTAMOS DATOS LOCALES
+    localStorage.removeItem("usuario");
+    //ACTUALIZAMOS ICONO Y ACCESO
+    actualizarUIUsuario();
+}
+
+//FUNCIION PARA ACTUALIZAR EL ICONO Y ACCESO EN CASO DE LOGIN O DESLOGUEO
+function actualizarUIUsuario() {
+    const usuario = localStorage.getItem("usuario");
+    const iconoUsuario = document.getElementById("iconoUsuario");
+    const usuarioDropdown = document.getElementById("usuarioDropdown");
+    const nombreUsuario = document.getElementById("nombreUsuario");
+
+    if (usuario) {
+        //OCULTAMOS BOTON DE LOGIN
+        iconoUsuario.classList.add("d-none");
+
+        //MOSTRAMOS OPCIONES DE USUARIO LOGUEADO
+        usuarioDropdown.classList.remove("d-none");
+        nombreUsuario.textContent = usuario;
+    } else {
+        //MOSTRAMOS BOTON DE LOGIN
+        iconoUsuario.classList.remove("d-none");
+
+        //OCULTAMOS OPCIONES DE USUARIO LOGUEADO
+        usuarioDropdown.classList.add("d-none");
+    }
+}
+
+//CONTROL INICIAL PARA VERIFICAR SI EXISTE UN USUARIO LOGUEADO
+document.addEventListener("DOMContentLoaded", actualizarUIUsuario);
+
+//ANIMACION CARROUSEL
+document.addEventListener("DOMContentLoaded", function () {
+    const carousel = new bootstrap.Carousel(document.getElementById("carouselSlider"), {
+        interval: 3000,
+        ride: "carousel"
+    });
+});
