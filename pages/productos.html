@@ -12,6 +12,8 @@
     <!--VINCULACION HOJA DE ESTILOS-->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS TOASTIFY -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
@@ -161,61 +163,8 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row g-3 mt-3">
-                                <article class="col-12 col-md-6 col-lg-3">
-                                    <div class="card border border-0">
-                                        <img src="../images/productos_uno.jpg" class="w-100 d-block"
-                                            alt="Vaquitas de San Antonio - Green House">
-                                        <div class="card-body w-100 h-100">
-                                            <h4 class="mb-3 text-center">Vaquitas de San Antonio</h4>
-                                            <button onclick="agregarAlCarrito('Vaquitas de San Antonio')"
-                                                class="btn text-light border border-0">Añadir al carrito</button>
-                                        </div>
-                                    </div>
-                                </article>
-                                <article class="col-12 col-md-6 col-lg-3">
-                                    <div class="card border border-0">
-                                        <img src="../images/productos_dos.jpg" class="w-100 d-block"
-                                            alt="Tomates - Green House">
-                                        <div class="card-body w-100 h-100">
-                                            <h4 class="mb-3 text-center">Tomates</h4>
-                                            <button onclick="agregarAlCarrito('Tomates')"
-                                                class="btn text-light border border-0">Añadir al carrito</button>
-                                        </div>
-                                    </div>
-                                </article>
-                                <article class="col-12 col-md-6 col-lg-3">
-                                    <div class="card border border-0">
-                                        <img src="../images/productos_tres.jpg" class="w-100 d-block"
-                                            alt="Cucurbitaceas - Green House">
-                                        <div class="card-body w-100 h-100">
-                                            <h4 class="mb-3 text-center">Cucurbit&aacute;ceas</h4>
-                                            <button onclick="agregarAlCarrito('Cucurbitaceas')"
-                                                class="btn text-light border border-0">Añadir al carrito</button>
-                                        </div>
-                                    </div>
-                                </article>
-                                <article class="col-12 col-md-6 col-lg-3">
-                                    <div class="card border border-0">
-                                        <img src="../images/productos_cuatro.jpg" class="w-100 d-block"
-                                            alt="Humus de lombriz - Green House">
-                                        <div class="card-body w-100 h-100">
-                                            <h4 class="mb-3 text-center">Humus de lombriz</h4>
-                                            <button onclick="agregarAlCarrito('Humus de lombriz')"
-                                                class="btn text-light border border-0">Añadir al carrito</button>
-                                        </div>
-                                    </div>
-                                </article>
-                                <div class="row g-3">
-                                    <!-- BOTON BUSCAR -->
-                                    <div
-                                        class="container-fluid full-height d-flex align-items-center justify-content-center">
-                                        <div class="text-center">
-                                            <a href="#" class="btn text-light border border-0">Mostrar m&aacute;s
-                                                resultados</a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="row g-3 mt-3" id="productos-container">
+                                <!-- LA LISTA DE PRODUCTOS SE COMPLETARA DESDE UN JSON -->
                             </div>
                         </div>
                     </div>
@@ -269,8 +218,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+    <!-- JS SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- JS TOASTIFY -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <!-- LINK SCRIPT CUSTOMIZADO -->
     <script src="../js/scripts.js"></script>
+    <script type="text/javascript">
+        // INICIALIZAMOS LA LISTA DE PRODUCTOS OBTENIDOS DESDE UN JSON
+        window.onload = cargarProductos;
+    </script>
 </body>
 
 </html>

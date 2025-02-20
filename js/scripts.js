@@ -161,56 +161,138 @@ const categorias = [
 
 //FUNCION PARA MOSTRAR LA INFORMACION ASOCIADA A UNA CATEGORIA
 function mostrarInformacionCategoria(categoriaNombre) {
-    // DADA UNA CATEGORIA SELECCIONADA BUSCAMOS LA INFORMACION ASOCIADA EN EL ARRAY
-    const categoria = categorias.find(item => item.nombre.toLowerCase() === categoriaNombre.toLowerCase());
+    // OBTENEMOS INFORMACION DESDE JSON
+    fetch('../data/categorias.json')
+        .then(response => {
+            if (!response.ok) {
+                //MOSTRAMOS MENSAJE DE ERROR
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Hubo un problema al obtener los datos.',
+                    confirmButtonText: 'Aceptar',
+                    customClass: {
+                        confirmButton: "swal-custom-confirm"
+                    }
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            // BUSCAMOS LA CATEGORIA EN EL JSON
+            const categoria = data.categorias.find(item => item.nombre.toLowerCase() === categoriaNombre.toLowerCase());
 
-    if (categoria) {
-        // SI EL ELEMENTO BUSCADO EXISTE MOSTRAMOS SU INFORMACION
-        let contenidoHTML = `
-            <h5>${categoria.nombre}</h5>
-            <p>${categoria.descripcion}</p>
-            <ul>
-                ${categoria.productos.map(producto => `<li>${producto}</li>`).join("")}
-            </ul>
-        `;
+            if (categoria) {
+                // GENERAMOS EL CONTENIDO HTML
+                let contenidoHTML = `
+                    <h5>${categoria.nombre}</h5>
+                    <p>${categoria.descripcion}</p>
+                    <ul>
+                        ${categoria.productos.map(producto => `<li>${producto}</li>`).join("")}
+                    </ul>
+                `;
 
-        //INSERTAMOS EL HTML GENERADO DENTRO DEL MODAL 
-        document.getElementById("infoCategoria").innerHTML = contenidoHTML;
+                // INSERTAMOS EL CONTENIDO EN EL MODAL
+                document.getElementById("infoCategoria").innerHTML = contenidoHTML;
 
-        //MOSTRAMOS MODAL
-        let modal = new bootstrap.Modal(document.getElementById("modalCategoria"));
-        modal.show();
-    } else {
-        // SI EL ELEMENTO BUSCADO NO EXISTE AVISAMOS QUE NO HAY INFORMACION
-        alert("Categoría no encontrada.");
-    }
+                // MOSTRAMOS EL MODAL
+                let modal = new bootstrap.Modal(document.getElementById("modalCategoria"));
+                modal.show();
+            } else {
+                // MENSAJE DE ERROR USANDO SWEETALERT
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Categoría no encontrada',
+                    text: 'No se ha encontrado información para la categoría seleccionada.',
+                    confirmButtonColor: '#d33'
+                });
+            }
+        })
+        .catch(error => {
+            // MOSTRAMOS MENSAJE DE ERROR
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo un problema al obtener los datos.',
+                confirmButtonText: 'Aceptar',
+                customClass: {
+                    confirmButton: "swal-custom-confirm"
+                }
+            });
+        });
 }
 
 // FUNCION PARA REGISTRAR SUSCRIPCION DESDE FOOTER
 function suscribirseBoletin() {
-    const email = prompt("Ingresa tu correo electrónico para suscribirte:");
-    if (email && email.includes("@")) {
-        alert(`¡Gracias por suscribirte, ${email}!`);
-    } else {
-        alert("Por favor, ingresa un correo electrónico válido.");
-    }
+    Swal.fire({
+        title: "Suscripción al Boletín",
+        input: "email",
+        inputPlaceholder: "Ingresa tu correo electrónico",
+        showCancelButton: true,
+        confirmButtonText: "Suscribirse",
+        cancelButtonText: "Cancelar",
+        customClass: {
+            confirmButton: "swal-custom-confirm"
+        },
+        preConfirm: (email) => {
+            if (!email || !email.includes("@")) {
+                Swal.showValidationMessage("Por favor, ingresa un correo electrónico válido.");
+            }
+            return email;
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            //MOSTRAMOS MENSAJE DE EXITO
+            Swal.fire({
+                title: "¡Gracias por suscribirte!",
+                text: `Tu correo es: ${result.value}`,
+                icon: "success",
+                confirmButtonText: "Aceptar",
+                customClass: {
+                    confirmButton: "swal-custom-confirm"
+                }
+            });
+        }
+    });
 }
-
 ////////GESTION USUARIO LOGUEADO
 // FUNCION PARA EL INICIO DE SESION DEL USUARIO
 //SE REEMPLAZA POR ALMACENAMIENTO LOCAL
 function iniciarSesion() {
-    let email = prompt("Por favor, ingresa tu correo electrónico para iniciar sesión:");
-
-    if (email) {
-        //GUARDAMOS EMAIL INGRESADO LOCALMENTE
-        localStorage.setItem("usuario", email);
-
-        //ACTUALIZAMOS ICONO Y ACCESO
-        actualizarUIUsuario();
-    } else {
-        alert("No has ingresado un correo electrónico.");
-    }
+    Swal.fire({
+        title: "Iniciar Sesión",
+        input: "email",
+        inputPlaceholder: "Ingresa tu correo electrónico",
+        showCancelButton: true,
+        confirmButtonText: "Aceptar",
+        cancelButtonText: "Cancelar",
+        customClass: {
+            confirmButton: "swal-custom-confirm"
+        },
+        preConfirm: (email) => {
+            if (!email || !email.includes("@")) {
+                Swal.showValidationMessage("Por favor, ingresa un correo electrónico válido.");
+            }
+            return email;
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            //GUARDAMOS EMAIL INGRESADO LOCALMENTE
+            localStorage.setItem("usuario", result.value);
+            //ACTUALIZAMOS ICONO Y ACCESO
+            actualizarUIUsuario();
+            //MOSTRAMOS MENSAJE DE EXITO
+            Swal.fire({
+                title: "Inicio de sesión exitoso",
+                text: `Bienvenido, ${result.value}`,
+                icon: "success",
+                confirmButtonText: "Aceptar",
+                customClass: {
+                    confirmButton: "swal-custom-confirm"
+                }
+            });
+        }
+    });
 }
 
 //FUNCION PARA CERRAR SESION DE USUARIO ACTUAL
@@ -247,10 +329,69 @@ function actualizarUIUsuario() {
 //CONTROL INICIAL PARA VERIFICAR SI EXISTE UN USUARIO LOGUEADO
 document.addEventListener("DOMContentLoaded", actualizarUIUsuario);
 
-//ANIMACION CARROUSEL
-document.addEventListener("DOMContentLoaded", function () {
-    const carousel = new bootstrap.Carousel(document.getElementById("carouselSlider"), {
-        interval: 3000,
-        ride: "carousel"
-    });
-});
+//AVISO NUEVOS PRODUCTOS DISPONIBLES
+function notificarNuevosProductos() {
+    Toastify({
+        text: "¡Nuevos productos disponibles en nuestra tienda!",
+        duration: 5000,
+        gravity: "bottom",
+        position: 'left',
+        style: {
+            background: "linear-gradient(to right, #5D8A2B, #7AA93C)",
+        },
+        close: true,
+        animate: true,
+    }).showToast();
+}
+
+//INICIALIZACION TOASTIFY
+document.addEventListener("DOMContentLoaded", notificarNuevosProductos);
+
+//GENERACION DE PRODUCTOS DESDE UN ARCHIVO JSON
+function cargarProductos() {
+    fetch('../data/productos.json')
+        .then(response => {
+            if (!response.ok) {
+                //MOSTRAMOS MENSAJE DE ERROR
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Hubo un problema al cargar los productos.',
+                    confirmButtonText: 'Aceptar',
+                    customClass: {
+                        confirmButton: "swal-custom-confirm"
+                    }
+                });
+            }
+            return response.json();
+        })
+        .then(productos => {
+            const contenedorProductos = document.getElementById('productos-container');
+            productos.forEach(producto => {
+                const article = document.createElement('article');
+                article.className = 'col-12 col-md-6 col-lg-3';
+                article.innerHTML = `
+                    <div class="card border border-0">
+                        <img src="${producto.imagen}" class="w-100 d-block" alt="${producto.descripcion}">
+                        <div class="card-body w-100 h-100">
+                            <h4 class="mb-3 text-center">${producto.nombre}</h4>
+                            <button onclick="agregarAlCarrito('${producto.nombre}')" class="btn text-light border border-0">Añadir al carrito</button>
+                        </div>
+                    </div>
+                `;
+                contenedorProductos.appendChild(article);
+            });
+        })
+        .catch(error => {
+            Swal.fire({
+                icon: 'error',
+                text: 'Hubo un problema al cargar los productos.',
+                text: error,
+                confirmButtonText: 'Aceptar',
+                customClass: {
+                    confirmButton: "swal-custom-confirm"
+                }
+            });
+        });
+}
+

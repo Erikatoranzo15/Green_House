@@ -89,6 +89,13 @@ body {
   animation-iteration-count: infinite;
 }
 
+.swal-custom-confirm {
+  background-color: #7AA93C !important;
+}
+.swal-custom-confirm:hover {
+  background-color: #5D8A2B !important;
+}
+
 /* CSS CUSTOMIZADO NAVBAR */
 header .navbar .container .navbar-brand h1 {
   font-size: 32px;

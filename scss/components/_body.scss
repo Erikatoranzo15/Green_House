@@ -44,3 +44,10 @@ body {
     }
 
 }
+
+.swal-custom-confirm {
+    background-color: $swal-confirm-color !important;
+    &:hover {
+        background-color: $swal-confirm-hover-color !important;
+    }
+}
