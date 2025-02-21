@@ -349,7 +349,7 @@ document.addEventListener("DOMContentLoaded", notificarNuevosProductos);
 
 //GENERACION DE PRODUCTOS DESDE UN ARCHIVO JSON
 function cargarProductos() {
-    fetch('data/productos.json')
+    fetch('../data/productos.json')
         .then(response => {
             if (!response.ok) {
                 //MOSTRAMOS MENSAJE DE ERROR

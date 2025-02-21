@@ -1,22 +1,22 @@
 [
     {
         "nombre": "Vaquitas de San Antonio",
-        "imagen": "images/productos_uno.jpg",
+        "imagen": "../images/productos_uno.jpg",
         "descripcion": "Vaquitas de San Antonio - Green House"
     },
     {
         "nombre": "Tomates",
-        "imagen": "images/productos_dos.jpg",
+        "imagen": "../images/productos_dos.jpg",
         "descripcion": "Tomates - Green House"
     },
     {
         "nombre": "Cucurbitáceas",
-        "imagen": "images/productos_tres.jpg",
+        "imagen": "../images/productos_tres.jpg",
         "descripcion": "Cucurbitáceas - Green House"
     },
     {
         "nombre": "Humus de lombriz",
-        "imagen": "images/productos_cuatro.jpg",
+        "imagen": "../images/productos_cuatro.jpg",
         "descripcion": "Humus de lombriz - Green House"
     }
 ]
