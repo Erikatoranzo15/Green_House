@@ -119,46 +119,6 @@ function buscarProducto() {
     }
 }
 
-//INICIALIZACION DE INFORMACION DE LAS CATEGORIAS DEL HOME
-const categorias = [
-    {
-        nombre: "Semillas",
-        descripcion: "Las semillas son el inicio de un jardín próspero. Ofrecemos una variedad de semillas de hortalizas, flores y plantas aromáticas para que puedas cultivar lo que más te guste.",
-        productos: [
-            "Semillas de tomate",
-            "Semillas de lechuga",
-            "Semillas de albahaca"
-        ]
-    },
-    {
-        nombre: "Sustratos",
-        descripcion: "El sustrato es fundamental para el crecimiento de tus plantas. Contamos con diferentes tipos de sustratos orgánicos y minerales para todo tipo de plantas.",
-        productos: [
-            "Sustrato para cactus",
-            "Sustrato para huertas",
-            "Sustrato para orquídeas"
-        ]
-    },
-    {
-        nombre: "Fertilizantes",
-        descripcion: "Los fertilizantes aportan los nutrientes necesarios para el crecimiento óptimo de tus plantas. Descubre nuestra selección de fertilizantes orgánicos y químicos.",
-        productos: [
-            "Fertilizante líquido orgánico",
-            "Fertilizante para tomates",
-            "Fertilizante de liberación controlada"
-        ]
-    },
-    {
-        nombre: "Control de Plagas",
-        descripcion: "Protege tus plantas de plagas y enfermedades con nuestros productos especializados en control biológico y químico para cada tipo de cultivo.",
-        productos: [
-            "Insecticida natural",
-            "Pesticida para hongos",
-            "Trampa para mosquitos"
-        ]
-    }
-];
-
 //FUNCION PARA MOSTRAR LA INFORMACION ASOCIADA A UNA CATEGORIA
 function mostrarInformacionCategoria(categoriaNombre) {
     // OBTENEMOS INFORMACION DESDE JSON
