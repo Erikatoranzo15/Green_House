@@ -162,7 +162,7 @@ const categorias = [
 //FUNCION PARA MOSTRAR LA INFORMACION ASOCIADA A UNA CATEGORIA
 function mostrarInformacionCategoria(categoriaNombre) {
     // OBTENEMOS INFORMACION DESDE JSON
-    fetch('../data/categorias.json')
+    fetch('./data/categorias.json')
         .then(response => {
             if (!response.ok) {
                 //MOSTRAMOS MENSAJE DE ERROR
@@ -349,7 +349,7 @@ document.addEventListener("DOMContentLoaded", notificarNuevosProductos);
 
 //GENERACION DE PRODUCTOS DESDE UN ARCHIVO JSON
 function cargarProductos() {
-    fetch('../data/productos.json')
+    fetch('./data/productos.json')
         .then(response => {
             if (!response.ok) {
                 //MOSTRAMOS MENSAJE DE ERROR
