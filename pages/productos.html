@@ -48,11 +48,11 @@
                     </h1>
                 </a>
                 <!-- AGREGAMOS CLASE PARA OCULTARLO EN VERSION MOBILE -->
-                <form class="d-flex form-inline mx-auto">
-                    <input class="form-control me-2 d-none d-sm-block" type="search" placeholder="Buscar"
-                        aria-label="Buscar" onclick="iniciarSesion()">
-                    <button class="btn btn-dark btn-search d-none d-sm-block" type="submit"
-                        onclick="buscarProducto()"><i class="fas fa-search"></i></button>
+                <form class="d-flex form-inline mx-auto" onsubmit="buscarProducto(event)">
+                    <input id="txtProductoBuscado" class="form-control me-2 d-none d-sm-block" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-dark btn-search d-none d-sm-block" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </form>
                 <div class="d-flex align-items-center position-relative">
                     <!-- INICIO SESION -->

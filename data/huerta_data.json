@@ -1,0 +1,82 @@
+[
+    {
+        "categoria": "Plantas",
+        "nombre": "Albahaca",
+        "descripcion": "Planta aromática utilizada en la cocina y como repelente natural de insectos."
+    },
+    {
+        "categoria": "Plantas",
+        "nombre": "Tomate",
+        "descripcion": "Hortaliza de clima cálido, requiere mucha luz y suelo bien drenado."
+    },
+    {
+        "categoria": "Plantas",
+        "nombre": "Zanahoria",
+        "descripcion": "Raíz comestible rica en betacarotenos, ideal para suelos sueltos y profundos."
+    },
+    {
+        "categoria": "Plantas",
+        "nombre": "Lechuga",
+        "descripcion": "Hortaliza de hoja que crece mejor en climas frescos y con riego constante."
+    },
+    {
+        "categoria": "Plagas",
+        "nombre": "Pulgón",
+        "descripcion": "Insectos pequeños que chupan la savia de las plantas, debilitándolas."
+    },
+    {
+        "categoria": "Plagas",
+        "nombre": "Mosca blanca",
+        "descripcion": "Insecto que se alimenta de la savia y puede transmitir virus a las plantas."
+    },
+    {
+        "categoria": "Plagas",
+        "nombre": "Oruga",
+        "descripcion": "Larva de mariposa que se alimenta de las hojas, causando grandes daños."
+    },
+    {
+        "categoria": "Plagas",
+        "nombre": "Caracol",
+        "descripcion": "Molusco que se alimenta de hojas tiernas y brotes jóvenes."
+    },
+    {
+        "categoria": "Fertilizantes",
+        "nombre": "Compost",
+        "descripcion": "Abono natural obtenido de la descomposición de materia orgánica."
+    },
+    {
+        "categoria": "Fertilizantes",
+        "nombre": "Humus de lombriz",
+        "descripcion": "Enmienda orgánica rica en nutrientes y microorganismos benéficos."
+    },
+    {
+        "categoria": "Fertilizantes",
+        "nombre": "Guano",
+        "descripcion": "Fertilizante de origen animal con alto contenido de nitrógeno."
+    },
+    {
+        "categoria": "Fertilizantes",
+        "nombre": "Ceniza de madera",
+        "descripcion": "Fuente natural de potasio y fósforo, útil para mejorar la calidad del suelo."
+    },
+    {
+        "categoria": "Consejos",
+        "nombre": "Rotación de cultivos",
+        "descripcion": "Práctica agrícola que previene la fatiga del suelo y reduce plagas."
+    },
+    {
+        "categoria": "Consejos",
+        "nombre": "Asociación de cultivos",
+        "descripcion": "Plantar especies compatibles para mejorar el rendimiento y reducir plagas."
+    },
+    {
+        "categoria": "Consejos",
+        "nombre": "Riego por goteo",
+        "descripcion": "Sistema eficiente para optimizar el uso del agua en la huerta."
+    },
+    {
+        "categoria": "Consejos",
+        "nombre": "Control biológico",
+        "descripcion": "Uso de insectos benéficos para el control natural de plagas."
+    }
+]

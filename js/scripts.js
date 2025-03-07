@@ -114,28 +114,103 @@ document.addEventListener("DOMContentLoaded", actualizarContadorCarrito);
 
 //////FIN GESTION CARRITO
 
-// FUNCION PARA BUSCAR PRODUCTOS DESDE EL BUSCADOR DEL NAVBAR
-function buscarProducto() {
-    const producto = prompt("¿Qué producto estás buscando? (Ej: Semillas, Sustratos, Fertilizantes)");
+//NECESARIO PARA RECUPERAR EL JSON EN TODAS LAS VISTAS
+function obtenerRutaJSON() {
+    let rutaBase = "data/huerta_data.json";
 
-    if (producto) {
-        switch (producto.toLowerCase()) {
-            case "semillas":
-                alert("Te redirigiremos a la sección de Semillas.");
-                break;
-            case "sustratos":
-                alert("Te redirigiremos a la sección de Sustratos.");
-                break;
-            case "fertilizantes":
-                alert("Te redirigiremos a la sección de Fertilizantes.");
-                break;
-            default:
-                alert("No hay resultados para la búsqueda realizada.");
-        }
-    } else {
-        alert("No ingresaste ningún producto.");
+    // Si estamos en una subcarpeta (ejemplo: /pages/), ajustar la ruta
+    if (window.location.pathname.includes("/pages/")) {
+        rutaBase = "../data/huerta_data.json";
     }
+
+    // Para GitHub Pages, usar la URL completa desde la raíz del repositorio
+    if (window.location.hostname.includes("github.io")) {
+        rutaBase = "https://erikatoranzo15.github.io/Green_House/data/huerta_data.json";
+    }
+
+    return rutaBase;
 }
+
+
+// FUNCION PARA BUSCAR PRODUCTOS DESDE EL BUSCADOR DEL NAVBAR
+function buscarProducto(event) {
+    event.preventDefault(); 
+
+    const inputBusqueda = document.getElementById("txtProductoBuscado").value.trim().toLowerCase();
+    
+    //CONTROLAMOS QUE HAYA INGRESADO UN VALOR DE BUSQUEDA
+    if (inputBusqueda === "") {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Atención',
+            text: 'Por favor, ingrese un texto a buscar.',
+            confirmButtonText: 'Aceptar',
+            customClass: {
+                confirmButton: "swal-custom-confirm"
+            }
+        });
+        return;
+    }
+
+    fetch(obtenerRutaJSON())
+        .then(response => response.json())
+        .then(datos => {
+            const resultados = datos.filter(item => 
+                item.nombre.toLowerCase().includes(inputBusqueda) || 
+                item.categoria.toLowerCase().includes(inputBusqueda)
+            );
+
+            if (resultados.length === 0) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Sin resultados',
+                    text: `No se encontraron resultados para "${inputBusqueda}".`,
+                    confirmButtonText: 'Aceptar',
+                    customClass: {
+                        confirmButton: "swal-custom-confirm"
+                    }
+                });
+            } else {
+                mostrarResultadosBusqueda(resultados);
+            }
+        })
+        .catch(error => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo un problema al buscar los productos.',
+                confirmButtonText: 'Aceptar',
+                customClass: {
+                    confirmButton: "swal-custom-confirm"
+                }
+            });
+        });
+}
+
+function mostrarResultadosBusqueda(resultados) {
+    let contenidoHTML = '<ul class="list-group">';
+    
+    resultados.forEach(item => {
+        contenidoHTML += `
+            <li class="list-group-item">
+                <strong>${item.nombre}</strong> <br>
+                <small><em>${item.categoria}</em></small> <br>
+                ${item.descripcion}
+            </li>`;
+    });
+
+    contenidoHTML += '</ul>';
+
+    Swal.fire({
+        title: 'Resultados de la búsqueda',
+        html: contenidoHTML,
+        confirmButtonText: 'Cerrar',
+        customClass: {
+            confirmButton: "swal-custom-confirm"
+        }
+    });
+}
+
 
 //FUNCION PARA MOSTRAR LA INFORMACION ASOCIADA A UNA CATEGORIA
 function mostrarInformacionCategoria(categoriaNombre) {
