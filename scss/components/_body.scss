@@ -47,7 +47,26 @@ body {
 
 .swal-custom-confirm {
     background-color: $swal-confirm-color !important;
+
     &:hover {
         background-color: $swal-confirm-hover-color !important;
+    }
+}
+
+
+
+.modal {
+    .modal-dialog {
+        .modal-content {
+            .modal-footer {
+                .btn-primary {
+                    background-color: $btn-primary-color;
+                    border-color: $btn-primary-color;
+                    &:hover {
+                        background-color: $btn-hover-color;
+                    }
+                }
+            }
+        }
     }
 }

@@ -71,7 +71,8 @@
                     </div>
                     <!-- CARRITO DE COMPRAS -->
                     <div class="position-relative">
-                        <i class="fas fa-2x fa-shopping-cart" onclick="verCarrito()"></i>
+                        <i class="fas fa-2x fa-shopping-cart" data-bs-toggle="modal" data-bs-target="#modalCarrito"
+                            onclick="renderCarrito()"></i>
                         <span
                             class="position-absolute top-0 start-100 translate-middle badge rounded-pill custom-badge">
                             0
@@ -192,6 +193,28 @@
             </div>
         </div>
     </footer>
+
+    <!-- MODAL DEL CARRITO -->
+    <div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Green House 🌼🌱 | Carrito de compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="carrito">
+                        <!-- CONFORME SE AGREGUEN ELEMENTOS AL CARRITO APARECERAN ACA -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h5>Total: $<span id="total-compra">0.00</span></h5>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
+                    <button type="button" class="btn btn-primary" onclick="finalizarCompra();" data-bs-dismiss="modal" id="btnFinalizarCompra">Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--LINK SCRIPT BOOTSTRAP-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

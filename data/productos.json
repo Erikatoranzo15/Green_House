@@ -2,21 +2,25 @@
     {
         "nombre": "Vaquitas de San Antonio",
         "imagen": "../images/productos_uno.jpg",
-        "descripcion": "Vaquitas de San Antonio - Green House"
+        "descripcion": "Vaquitas de San Antonio - Green House",
+        "precio": 1000
     },
     {
         "nombre": "Tomates",
         "imagen": "../images/productos_dos.jpg",
-        "descripcion": "Tomates - Green House"
+        "descripcion": "Tomates - Green House",
+        "precio": 1500
     },
     {
         "nombre": "Cucurbitáceas",
         "imagen": "../images/productos_tres.jpg",
-        "descripcion": "Cucurbitáceas - Green House"
+        "descripcion": "Cucurbitáceas - Green House",
+        "precio": 2000
     },
     {
         "nombre": "Humus de lombriz",
         "imagen": "../images/productos_cuatro.jpg",
-        "descripcion": "Humus de lombriz - Green House"
+        "descripcion": "Humus de lombriz - Green House",
+        "precio": 3000
     }
 ]

@@ -96,6 +96,14 @@ body {
   background-color: #5D8A2B !important;
 }
 
+.modal .modal-dialog .modal-content .modal-footer .btn-primary {
+  background-color: #7AA93C;
+  border-color: #7AA93C;
+}
+.modal .modal-dialog .modal-content .modal-footer .btn-primary:hover {
+  background-color: #5D8A2B;
+}
+
 /* CSS CUSTOMIZADO NAVBAR */
 header .navbar .container .navbar-brand h1 {
   font-size: 32px;
